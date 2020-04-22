@@ -1,0 +1,15 @@
+{
+    "name": "adrig/zamora",
+    "description": "Punto de venta",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adrian Davalos",
+            "email": "aalejandro.davalos@alumnos.udg.mx"
+        }
+    ],
+    "require": {
+        "nesbot/carbon": "^2.32"
+    }
+}
