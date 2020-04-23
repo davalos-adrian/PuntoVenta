@@ -13,9 +13,9 @@
 	{
 		$_SESSION['user_id'] = $res[0]['id'];
 		$_SESSION['username'] = $email;
-		hheader('Status: 200');
+		header("Location: index.php");
 	} else {
-		header('Status: 401');
+		header("Location: index.php?login_attempt=1");
 	}
-	header("Location: index.php");
+	
 ?>

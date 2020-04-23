@@ -7,7 +7,8 @@
 	session_start();
 	if(!isset($_SESSION['username']))
 	{
-		echo $GLOBALS['twig']->render('login.html', ["response" => http_response_code()]);
+		$attempt = isset($_GET['login_attempt']) ? $_GET['login_attempt'] : 0
+		echo $GLOBALS['twig']->render('login.html', ["attempt" => $attempt]);
 	} else {
 		echo $GLOBALS['twig']->render('body.html', 
 									[
