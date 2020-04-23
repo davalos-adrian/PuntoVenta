@@ -13,7 +13,7 @@
 		echo $twig->render('body.html', 
 									[
 										'title' => 'Registro empleados',
-										'content' => 'clients.html',
+										'content' => 'reg_employee.html',
 										'username' => $_SESSION['username']
 									]);
 	}
