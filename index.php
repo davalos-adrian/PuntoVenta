@@ -12,7 +12,6 @@
 	} else {
 		echo $GLOBALS['twig']->render('body.html', 
 									[
-										'name' => 'John',
 										'title' => 'Registro clientes',
 										'content' => 'clients.html',
 										'username' => $_SESSION['username']
