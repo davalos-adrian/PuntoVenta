@@ -1,19 +1,11 @@
 <?php
-	require __DIR__ . '/vendor/autoload.php'
+	require_once __DIR__ . '/vendor/autoload.php';
+	$loader = new \Twig\Loader\FilesystemLoader('./views');
+	$twig = new \Twig\Environment($loader, [
+	    'cache' => './cache',
+	]);
 
+	echo $twig->render('body.html', ['name' => 'John',
+									 'title' => 'Registro clientes',
+									 'content' => 'clients.html']);
 ?>
-
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Index page!</title>
-	</head>
-	<body>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-	</body>
-</html>
