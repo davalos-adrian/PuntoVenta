@@ -1,11 +1,21 @@
 <?php
 	require_once __DIR__ . '/vendor/autoload.php';
 	$loader = new \Twig\Loader\FilesystemLoader('./views');
-	$twig = new \Twig\Environment($loader, [
-	    'cache' => './cache',
+	$GLOBALS['twig'] = new \Twig\Environment($loader, [
+	    'cache' => false,
 	]);
+	session_start();
 
-	echo $twig->render('body.html', ['name' => 'John',
-									 'title' => 'Registro clientes',
-									 'content' => 'clients.html']);
+	if(!isset($_SESSION['username']))
+	{
+		echo $GLOBALS['twig']->render('login.html');
+	} else {
+		echo $GLOBALS['twig']->render('body.html', 
+									[
+										'name' => 'John',
+										'title' => 'Registro clientes',
+										'content' => 'clients.html',
+										'username' => $_SESSION['username']
+									]);
+	}
 ?>
