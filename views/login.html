@@ -13,16 +13,20 @@
   </head>
   <main>
     <style type="text/css">
-      html, body {
-        height: 100%;
-        width: 100%;
+      html, body, .container {
+          height: 100%;
       }
-      .container{
-        height: 100vh;
-        width: 100vw;
-        display: flex;
-        flex: 1;
-        align-items: center;
+
+      .container {
+          display: -webkit-flexbox;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          -webkit-flex-align: center;
+          -ms-flex-align: center;
+          -webkit-align-items: center;
+          align-items: center;
+          justify-content: center;
       }
     </style>
     <body>
