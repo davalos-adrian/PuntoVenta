@@ -17,6 +17,56 @@
       html, body, .container {
           height: 100%;
       }
+      .fade-in {
+        animation: fadeIn ease 10s;
+        -webkit-animation: fadeIn ease 10s;
+        -moz-animation: fadeIn ease 10s;
+        -o-animation: fadeIn ease 10s;
+        -ms-animation: fadeIn ease 10s;
+      }
+      @keyframes fadeIn {
+        0% {
+          opacity:0;
+        }
+        100% {
+          opacity:1;
+        }
+      }
+
+      @-moz-keyframes fadeIn {
+        0% {
+          opacity:0;
+        }
+        100% {
+          opacity:1;
+        }
+      }
+
+      @-webkit-keyframes fadeIn {
+        0% {
+          opacity:0;
+        }
+        100% {
+          opacity:1;
+        }
+      }
+
+      @-o-keyframes fadeIn {
+        0% {
+          opacity:0;
+        }
+        100% {
+          opacity:1;
+        }
+      }
+
+      @-ms-keyframes fadeIn {
+        0% {
+          opacity:0;
+        }
+        100% {
+          opacity:1;
+      }
 
       .container {
           height: 100vh; 
@@ -46,7 +96,7 @@
         min-width: 50%;
       }
     </style>
-    <body>
+    <body style="background-color: #F8BBD0" class="fade-in">
       <div class="container">
         <div class="container2">
           <div class="row align-items-center">
