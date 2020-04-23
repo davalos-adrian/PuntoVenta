@@ -13,9 +13,9 @@
 	{
 		$_SESSION['user_id'] = $res[0]['id'];
 		$_SESSION['username'] = $email;
-		header("HTTP/1.1 200 OK");
+		hheader('Status: 200');
 	} else {
-		header("HTTP/1.1 401 Unauthorized");
+		header('Status: 401');
 	}
 	header("Location: index.php");
 ?>
