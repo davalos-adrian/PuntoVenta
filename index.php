@@ -5,10 +5,9 @@
 	    'cache' => false,
 	]);
 	session_start();
-
 	if(!isset($_SESSION['username']))
 	{
-		echo $GLOBALS['twig']->render('login.html');
+		echo $GLOBALS['twig']->render('login.html', ["response" => http_response_code()]);
 	} else {
 		echo $GLOBALS['twig']->render('body.html', 
 									[

@@ -13,6 +13,10 @@
 	{
 		$_SESSION['user_id'] = $res[0]['id'];
 		$_SESSION['username'] = $email;
-		header("Location: index.php");
+		http_response_code(200);
+	} else {
+		http_response_code(401);
 	}
+
+	header("Location: index.php");
 ?>
