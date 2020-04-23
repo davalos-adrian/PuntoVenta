@@ -13,5 +13,6 @@
 	{
 		$_SESSION['user_id'] = $res[0]['id'];
 		$_SESSION['username'] = $email;
+		header("Location: index.php");
 	}
 ?>
