@@ -13,6 +13,7 @@
   </head>
   <main>
     <body>
+      {{ response }}
       <div class="container" style="margin-top:10%;">
         <div class="row">
           <div class="col-6 offset-3">
@@ -28,7 +29,7 @@
               <center><button type="submit" class="btn btn-primary" style="padding: 5px 30px 5px 30px">Entrar</button></center>
               {% if response == 401 %}
                 <script type="text/javascript">
-                  alertify.error('Usuario/Contraseña incorrectos')
+                  alertify.error('Usuario/Contraseña incorrectos');
                 </script>
               {% endif %}
             </form>
