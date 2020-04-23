@@ -13,10 +13,9 @@
 	{
 		$_SESSION['user_id'] = $res[0]['id'];
 		$_SESSION['username'] = $email;
-		http_response_code(200);
+		header("HTTP/1.1 200 OK");
 	} else {
-		http_response_code(401);
+		header("HTTP/1.1 401 Unauthorized");
 	}
-
 	header("Location: index.php");
 ?>
