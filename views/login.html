@@ -3,6 +3,9 @@
   <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
+	<link rel="icon" 
+	type="image/ico" 
+	href="favicon.ico">
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
 	<!-- Default theme -->
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
@@ -14,59 +17,70 @@
   </head>
   <body style="display:flex; align-items:center; justify-content:center;background-color: #FAFAFA" class="fade-in" >
 	<style type="text/css">
-	  html, body, .container {
-		  height: 100%;
-	  }
-	  .fade-in {
-		animation: fadeIn ease 3s;
-		-webkit-animation: fadeIn ease 3s;
-		-moz-animation: fadeIn ease 3s;
-		-o-animation: fadeIn ease 3s;
-		-ms-animation: fadeIn ease 3s;
-	  }
-	  @keyframes fadeIn {
-		0% {
-		  opacity:0;
+		html, body, .container {
+			height: 100%;
 		}
-		100% {
-		  opacity:1;
+		.fade-in {
+			animation: fadeIn ease 3s;
+			-webkit-animation: fadeIn ease 3s;
+			-moz-animation: fadeIn ease 3s;
+			-o-animation: fadeIn ease 3s;
+			-ms-animation: fadeIn ease 3s;
 		}
-	  }
+		.btn 
+		{
+			border-color: black;
+			border-style: solid;
+			border-width: 1px;
+		}	
+		.btn:hover{
+			background-color: black;
+			animation: ease 1s;
+			color: white;
+		}
+		@keyframes fadeIn {
+			0% {
+			  opacity:0;
+			}
+			100% {
+			  opacity:1;
+			}
+		}
 
-	  @-moz-keyframes fadeIn {
-		0% {
-		  opacity:0;
+		@-moz-keyframes fadeIn {
+			0% {
+			  opacity:0;
+			}
+			100% {
+			  opacity:1;
+			}
 		}
-		100% {
-		  opacity:1;
-		}
-	  }
 
-	  @-webkit-keyframes fadeIn {
-		0% {
-		  opacity:0;
+		@-webkit-keyframes fadeIn {
+			0% {
+			  opacity:0;
+			}
+			100% {
+			  opacity:1;
+			}
 		}
-		100% {
-		  opacity:1;
-		}
-	  }
 
-	  @-o-keyframes fadeIn {
-		0% {
-		  opacity:0;
+		@-o-keyframes fadeIn {
+			0% {
+			  opacity:0;
+			}
+			100% {
+			  opacity:1;
+			}
 		}
-		100% {
-		  opacity:1;
-		}
-	  }
 
-	  @-ms-keyframes fadeIn {
-		0% {
-		  opacity:0;
+		@-ms-keyframes fadeIn {
+			0% {
+			  opacity:0;
+			}
+			100% {
+			  opacity:1;
 		}
-		100% {
-		  opacity:1;
-	  }
 	  
 
 	  .container {
@@ -87,22 +101,13 @@
 		min-width: 30vw;
 		min-height: 30vh;
 	  }
-	  .container2
-	  {
-		border-style: solid;
-		border-color: rgba(240,230,245,.5);
-		background-color: #03A9F4;
-		border-radius: 10px;
-		padding: 30px 30px 30px 30px;
-		min-width: 50%;
-	  }
+
 
 	</style>
 	<main>
 	  <div class="container">
-		<div class="container2">
 		  <div class="row align-items-center">
-			<div class="col" style="width: 50vw; max-width:600px;">
+			<div class="col" style="width: 100vw; max-width:600px;">
 			  <form action="login.php" method="POST">
 				<div class="form-group">
 				  <label for="exampleInputEmail1">Correo electronico</label>
@@ -112,7 +117,7 @@
 				  <label for="exampleInputPassword1">Contraseña</label>
 				  <input type="password" class="form-control" placeholder="Introduce tu contraseña" name="password">
 				</div>
-				<center><button type="submit" class="btn btn-primary" style="padding: 5px 30px 5px 30px">Entrar</button></center>
+				<center><button type="submit" class="btn" style="padding: 5px 30px 5px 30px">Entrar</button></center>
 				{% if attempt == 1 %}
 				  <script type="text/javascript">
 					alertify.error('Usuario/Contraseña incorrectos');
@@ -121,7 +126,6 @@
 			  </form>
 			</div>
 		  </div>
-		</div>
 	  </div>
 	</main>
   </body>
