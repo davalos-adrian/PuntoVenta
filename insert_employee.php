@@ -1,21 +1,29 @@
 <?php
 	include "db_con.php";
 	session_start();
+	$RFC = $_POST['RFC'];
 	$email = $_POST['email'];
 	$password = hash('sha256', $_POST['password']);
+	$name = $_POST['name'];
+	$lastname = $_POST['lastname'];
+	$phone = $_POST['phone'];
+	$address = $_POST['address'];
+
 	$stmt = $pdo->prepare("
-			SELECT *
-			FROM employees
-			WHERE email = ? AND password = ?");
-	$stmt->execute(array($email, $password));
-	$res = $stmt->fetchAll(PDO::FETCH_ASSOC);
-	if (count($res) > 0) 
-	{
-		$_SESSION['user_id'] = $res[0]['id'];
-		$_SESSION['username'] = $email;
-		header("Location: index.php");
+			INSERT INTO employees(RFC,email,password,name,lastname,phone,address)
+			VALUES(?,?,?,?,?,?,?)");
+	$result = $stmt->execute(array($RFC, $email, $password, $name, $lastname, $phone, $address));
+	if ($result) {
+		$status = 201;
+		$message = "Empleado insertado con exito";
 	} else {
-		header("Location: index.php?login_attempt=1");
+		$status = 500;
+		$message = "Error";
 	}
-	
+	$response = array
+	(
+		"status" => $status,
+		"message" => $message;
+	)
+	die(json_encode($response));
 ?>
