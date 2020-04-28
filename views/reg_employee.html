@@ -1,5 +1,25 @@
+<script type="text/javascript">
+    $("form").submit(function(event) {
+        event.preventDefault();
+        $.ajax({
+            url: 'insert_employee.php',
+            type: 'POST',
+            data: $(this).serialize(),
+        })
+        .done(function(resp) {
+            console.log(resp);
+        })
+        .fail(function() {
+            console.log("error");
+        })
+        .always(function() {
+            console.log("complete");
+        });
+        
+    });
+</script>
 <main class="container">
-    <form action="login.php" method="POST">
+    <formmethod="POST">
         <div class="form-group">
             <label for="RFC">RFC</label>
             <input name="RFC" type="text" class="form-control" placeholder="Introduce el RFC">
