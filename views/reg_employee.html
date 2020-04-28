@@ -1,22 +1,25 @@
 <script type="text/javascript">
-    $("form").submit(function(event) {
-        event.preventDefault();
-        $.ajax({
-            url: 'insert_employee.php',
-            type: 'POST',
-            data: $(this).serialize(),
-        })
-        .done(function(resp) {
-            console.log(resp);
-        })
-        .fail(function() {
-            console.log("error");
-        })
-        .always(function() {
-            console.log("complete");
+    $(document).ready(function() {
+        $("form").submit(function(event) {
+            event.preventDefault();
+            $.ajax({
+                url: 'insert_employee.php',
+                type: 'POST',
+                data: $(this).serialize(),
+            })
+            .done(function(resp) {
+                console.log(resp);
+            })
+            .fail(function() {
+                console.log("error");
+            })
+            .always(function() {
+                console.log("complete");
+            });
+            
         });
-        
     });
+    
 </script>
 <main class="container">
     <formmethod="POST">
