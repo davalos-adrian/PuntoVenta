@@ -1,28 +1,56 @@
-<script type="text/javascript">
+<script type="text/javascript" defer>
     $(document).ready(function() {
         $("form").submit(function(event) {
             event.preventDefault();
-            $.ajax({
+            var error = 0;
+            var SUCCESS_STATUS = 201;
+            var ERROR_STATUS = 500;
+            var fields = $(this).serializeArray();
+            for(var i = 0; i < fields.length; i++)
+            {
+                if (!fields[i]["value"]) 
+                {
+                    alertify.error("Todos los campos deben ser llenados");
+                    return;
+                }
+            }
+            $.ajax(
+            {
                 url: 'insert_employee.php',
                 type: 'POST',
                 data: $(this).serialize(),
             })
-            .done(function(resp) {
+            .done(function(resp) 
+            {
                 console.log(resp);
+                resp = JSON.parse(resp);
+                console.log(resp.status);
+                switch (resp.status) {
+                    case SUCCESS_STATUS:
+                        alertify.success(resp.message);
+                        break;
+                    case ERROR_STATUS:
+                        alertify.error(resp.message);
+                        break;
+                    default:
+                        break;
+                }
+                
+
             })
-            .fail(function() {
-                console.log("error");
-            })
-            .always(function() {
-                console.log("complete");
+            .fail(function() 
+            {
+                resp = JSON.parse(resp);
+                console.error(resp.status);
+                alertify.error(resp.message);
             });
-            
+          
         });
     });
     
 </script>
 <main class="container">
-    <formmethod="POST">
+    <form method="POST">
         <div class="form-group">
             <label for="RFC">RFC</label>
             <input name="RFC" type="text" class="form-control" placeholder="Introduce el RFC">

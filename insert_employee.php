@@ -4,26 +4,27 @@
 	$RFC = $_POST['RFC'];
 	$email = $_POST['email'];
 	$password = hash('sha256', $_POST['password']);
-	$name = $_POST['name'];
+	$active = 1;
+	$firstname = $_POST['firstname'];
 	$lastname = $_POST['lastname'];
 	$phone = $_POST['phone'];
 	$address = $_POST['address'];
 
 	$stmt = $pdo->prepare("
-			INSERT INTO employees(RFC,email,password,name,lastname,phone,address)
-			VALUES(?,?,?,?,?,?,?)");
-	$result = $stmt->execute(array($RFC, $email, $password, $name, $lastname, $phone, $address));
+			INSERT INTO employees(id,email,password,active,firstname,lastname,phone,address)
+			VALUES(?,?,?,?,?,?,?,?)");
+	$result = $stmt->execute(array($RFC, $email, $password, $active, $firstname, $lastname, $phone, $address));
 	if ($result) {
 		$status = 201;
 		$message = "Empleado insertado con exito";
 	} else {
 		$status = 500;
-		$message = "Error";
+		$message = "No se pudo completar la solicitud, error en algun campo";
 	}
 	$response = array
 	(
 		"status" => $status,
-		"message" => $message;
-	)
+		"message" => $message
+	);
 	die(json_encode($response));
 ?>
